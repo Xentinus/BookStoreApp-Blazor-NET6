@@ -1,3 +1,4 @@
+using BookStoreApp.API.Configurations;
 using BookStoreApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -11,6 +12,9 @@ if (connString != null)
 {
     builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(connString));
 }
+
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 
 builder.Services.AddControllers();
