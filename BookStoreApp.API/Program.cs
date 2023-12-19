@@ -1,5 +1,6 @@
 using BookStoreApp.API.Configurations;
 using BookStoreApp.API.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -12,6 +13,11 @@ if (connString != null)
 {
     builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(connString));
 }
+
+// ASP.Net Core IdentityCore
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddRoles<IdentityRole>() // Use role classes
+    .AddEntityFrameworkStores<BookStoreDBContext>(); // suggest to separate app data and users db
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(MapperConfig));

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookStoreApp.API.Data
 {
-    public partial class BookStoreDBContext : DbContext
+    public partial class BookStoreDBContext : IdentityDbContext
     {
         public BookStoreDBContext()
         {
@@ -21,6 +22,8 @@ namespace BookStoreApp.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Author>(entity =>
             {
                 entity.Property(e => e.Bio).HasMaxLength(250);
