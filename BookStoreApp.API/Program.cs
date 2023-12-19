@@ -15,7 +15,7 @@ if (connString != null)
 }
 
 // ASP.Net Core IdentityCore
-builder.Services.AddIdentityCore<IdentityUser>()
+builder.Services.AddIdentityCore<ApiUser>() // Use ApiUser not the regular Identity user (IdentityUser)
     .AddRoles<IdentityRole>() // Use role classes
     .AddEntityFrameworkStores<BookStoreDBContext>(); // suggest to separate app data and users db
 

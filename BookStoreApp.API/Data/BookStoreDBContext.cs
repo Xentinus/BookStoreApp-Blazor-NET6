@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookStoreApp.API.Data
 {
-    public partial class BookStoreDBContext : IdentityDbContext
+    public partial class BookStoreDBContext : IdentityDbContext<ApiUser> // Use ApiUser not the regular Identity user (IdentityUser)
     {
         public BookStoreDBContext()
         {
