@@ -1,5 +1,6 @@
 using Blazored.LocalStorage;
 using BookStoreApp.Blazor.Server.UI.Providers;
+using BookStoreApp.Blazor.Server.UI.Services;
 using BookStoreApp.Blazor.Server.UI.Services.Authentication;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -17,6 +18,7 @@ builder.Services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("
 
 // After Http Client
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
 
 // Override authentication state provider
 builder.Services.AddScoped<ApiAuthenticationStateProvider>();
