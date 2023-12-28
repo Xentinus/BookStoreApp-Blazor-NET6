@@ -1,0 +1,9 @@
+﻿@inject NavigationManager Navigation
+
+@code {
+    // On component loads
+    protected override void OnInitialized()
+    {
+        Navigation.NavigateTo("users/login");
+    }
+}

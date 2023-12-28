@@ -11,14 +11,10 @@
     </div>
 }
 
-<div class="card-body">
+<div>
     <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
-        <DataAnnotationsValidator>
-
-        </DataAnnotationsValidator>
-        <ValidationSummary>
-
-        </ValidationSummary>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
         <div class="from-group">
             <label for="email">Email Address</label>
@@ -71,19 +67,11 @@
         try
         {
             await httpClient.RegisterAsync(RegistrationModel);
+            navManager.NavigateTo("/users/login");
         }
         catch (ApiException ex)
         {
-            if (ex.StatusCode >= 200 && ex.StatusCode <= 299)
-            {
-                NavigateToLogin();
-            }
             message = ex.Message;
         }
-    }
-
-    private void NavigateToLogin()
-    {
-        navManager.NavigateTo("/users/login");
     }
 }

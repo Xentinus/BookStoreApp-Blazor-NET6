@@ -54,7 +54,7 @@ namespace BookStoreApp.API.Controllers
 
                 await userManager.AddToRoleAsync(user, "User");
 
-                return Accepted();
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace BookStoreApp.API.Controllers
                 };
 
                 // Return accept is everything is good
-                return Accepted(response);
+                return response;
             }
             catch (Exception ex)
             {
