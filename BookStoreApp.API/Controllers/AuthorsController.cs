@@ -74,7 +74,7 @@ namespace BookStoreApp.API.Controllers
                 }
 
                 var authorDto = mapper.Map<AuthorReadOnlyDto>(author);
-                return Ok(authorDto);
+                return authorDto;
             }
             catch (Exception ex)
             {
